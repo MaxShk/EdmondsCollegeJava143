@@ -1,0 +1,13 @@
+Q:Is it a furry animal?
+Q:Is it a quick animal?
+A:horse
+A:cat
+Q:Do you put it on your foot?
+A:boot
+Q:Does it happen to wake you up in the morning?
+A:alarm
+Q:Does it go on your head?
+Q:Does the object wrap around your head?
+A:headband
+A:headset
+A:computer
