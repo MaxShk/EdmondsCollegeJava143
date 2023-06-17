@@ -1,0 +1,14 @@
+- Comment all methods
+- review guidelines
+- remove redundancy (before doing so, make a copy of project) (can be a private method)
+- revise the code
+- submit
+- use genaric interface for arraylist
+
+heading:
+- what each method in our program does
+- what the entire program does
+- First and Last Name
+- Date
+- Project number
+- Class name/number

@@ -1,0 +1,29 @@
+project #1:
+
+1) Left Click the tile you want to raise (bring forward) from the rest.
+2) Right click the tile you want to bring behind from the rest
+3) Use the method to retrieve x and y location from a tile, and where clicked, and use that infromation in an if/else statement to determine if the tile was clicked on
+4) resolution of the drawing panel is located in the TileMain class. Can be used to determine the x and Y axis of the panel.
+5) comments:
+	1) what does this method do? why would i call this?
+	2) What are the parameters? (write useful information, what do the parameters represent)
+	3) Mention (if applicable) preconditions, something that your method assumes is true at the start of its execution
+
+6) All fields (methods and variables) should be private
+	
+
+Help:
+Office hours, same zoom link as it is for the lab class
+
+public void raise(int x, int y) {
+        for(int i = list.size() - 1; i >= 0; i--) {
+            Tile tile = list.get(i);
+            if(x >= tile.getX() && x <= tile.getX() + tile.getWidth() &&
+                    y >= tile.getY() && y <= tile.getY() + tile.getHeight()) {
+                list.remove(i);
+                list.add(tile);
+                break;
+            }
+        }
+    }
+

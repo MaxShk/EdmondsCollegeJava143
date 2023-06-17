@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../classes/CS143"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"java.debug.settings.onBuildFailureProceed": true
+	}
+}
