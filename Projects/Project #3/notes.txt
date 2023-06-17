@@ -1,0 +1,60 @@
+- Map used in the algorithm record() for every correct letter guessed, the key would go up, the word with the most keys is most likely the answer
+
+-----------------------------
+Record():
+
+Check if the number of guesses left is at least 1 or if the set of words is empty. If not, throw an IllegalStateException.
+
+Check if the guessed letter has been guessed previously. If it has, throw an IllegalArgumentException.
+
+Update the set of words being considered to only include words that match the current pattern.
+
+Iterate through each word in the set of words being considered.
+For each word, check if it matches the current pattern.
+If it doesn't match, remove it from the set of words being considered.
+Update the set of previously guessed letters to include the newly guessed letter.
+
+Update the pattern to reflect the newly guessed letter.
+
+Iterate through each word in the set of words being considered.
+For each word, replace the "_" characters in the pattern with the guessed letter if the word contains the guessed letter in that position.
+If the guessed letter doesn't appear in a word, replace the corresponding "" in the pattern with "".
+Decrement the number of guesses left.
+
+Return the number of occurrences of the guessed letter in the new pattern.
+
+Let me know if you have any questions or need more specific guidance!
+---------------------------------
+
+public int record(char guess) {
+
+        if (guessesLeft < 1 || words.isEmpty()) {
+            throw new IllegalStateException("No guesses left or empty set of words");
+        }
+        if (guesses.contains(guess)) {
+            throw new IllegalArgumentException("You already guessed that letter!");
+        }
+        // Update guessed letters and remaining guesses
+        int count = 0;
+        if (count == 0) {
+            this.guesses.add(guess);
+        }
+        this.guessesLeft--;
+        // Create a map to store word patterns and their counts
+        Map<String, Set<String>> wordGroups = new HashMap<>();
+        for (String word : this.words) {
+            StringBuilder newPattern = new StringBuilder();
+            for (int i = 0; i < this.length; i++) {
+                if (word.charAt(i) == guess) {
+                    newPattern.append(guess);
+                    count++;
+                } else {
+                    newPattern.append(this.pattern.charAt(i));
+                }
+            }
+        }
+        return count;
+    }
+
+-----------------------------------------
+

@@ -1,0 +1,77 @@
+import java.util.*;
+/**
+ *
+ * @author jane
+ */
+public class WordGuesser {
+    private Set<String> possibleWords;
+    private Map<Character, Integer> wordCounts;
+    private int guessesLeft;
+    private int wordLength;
+    
+    /**
+     * Parameters: Collection<String> - contains the full dictionary of words
+     * @param words
+     * @param length int - the length of the word the user will guess
+     * @param max int - the maximum number of allowed guesses
+     */
+    WordGuesser(Collection<String> words, int length, int max){
+        if (length < 1 || max < 0) {
+            throw new IllegalArgumentException("Invalid input arguments");
+        }
+        possibleWords = new HashSet<>();
+        for (String word : words) {
+            if (word.length() == length) {
+                possibleWords.add(word);
+            }
+        }
+        wordLength = length;
+        guessesLeft = max;
+    }
+
+    public Set<String> words() {
+        return possibleWords;
+    }
+    
+    public int guessesLeft() {
+        return guessesLeft;
+    }
+    
+    public Set<Character> guesses() {
+        Set<Character> guesses = new TreeSet<>();
+        for (String word : possibleWords) {
+            for (char c : word.toCharArray()) {
+                guesses.add(c);
+            }
+        }
+        return guesses;
+    }
+    
+    public String pattern() {
+        if (possibleWords.isEmpty()) {
+        throw new IllegalStateException("No words left to guess!");
+        }
+        StringBuilder pattern = new StringBuilder();
+        Map<Integer, Character> positions = new HashMap<>();
+        for (String word : possibleWords) {
+            for (int i = 0; i < wordLength; i++) {
+                char c = word.charAt(i);
+                if (possibleWords.contains(c)) {
+                    positions.put(i, c);
+                } else if (!positions.containsKey(i) && c != '-') {
+                    positions.put(i, '_');
+                }
+            }
+        }
+        for (int i = 0; i < wordLength; i++) {
+            char c = positions.getOrDefault(i, '-');
+            pattern.append(c);
+            pattern.append(' ');
+        }
+        return pattern.toString().trim();
+    }
+    
+    public int record(char guess) {
+        return 0;
+    }
+}
