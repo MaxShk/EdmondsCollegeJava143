@@ -1,0 +1,26 @@
+arrayMysteryExam2 
+Language/Type: Java arrays
+
+Write the output produced by the following method when passed each of the following arrays:
+
+public static void arrayMysteryExam2(int[] a) {
+    for (int i = 0; i < a.length - 1; i++) {
+        if (a[i] > a[i + 1]) {
+            int temp = a[i];
+            a[i] = a[i + 1];
+            a[i + 1] = temp;
+            a[0]++;
+        }
+    }
+    System.out.println(Arrays.toString(a));
+}
+
+
+
+Solution:
+
+{5, 2, 5, 2} :: [4, 5, 2, 5]
+
+{30, 10, 20, 50, 40} :: [13, 20, 30, 40, 50]
+
+{99, 88, 77, 66, 55, 44} :: [93, 77, 66, 55, 44, 99]
