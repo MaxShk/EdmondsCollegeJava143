@@ -1,0 +1,72 @@
+writeTree 
+Language/Type: Java binary trees
+
+Write a method named writeTree that prints a binary tree of integers in a specific format. Your method accepts as its parameter a TreeNode that refers to the root of the tree. You are to perform a pre-order traversal of the tree, producing exactly one line of output for each node. Each output line should begin with a code indicating the type of node from the following table, followed by the data in the node:
+
+Code	Node Type
+0	leaf node (no children)
+1	branch node with left child only
+2	branch node with right child only
+3	branch node with left and right children
+For example, suppose a variable named tree refers to the root of the following tree:
+
+    7____
+   /     \
+  9     __8
+ /     /   \
+5     4     6
+       \
+        9
+The call of writeTree(tree); would produce the following console output:
+
+3 7
+1 9
+0 5
+3 8
+2 4
+0 9
+0 6
+Assume that you are interacting with TreeNodes as defined below:
+
+public class TreeNode {
+    public int data;
+    public TreeNode left;
+    public TreeNode right;
+    
+    public TreeNode() { ... }
+    public TreeNode(int data) { ... }
+    public TreeNode(int data, TreeNode left, TreeNode right) { ... }
+}
+
+Solution:
+
+
+public static void writeTree(TreeNode node) {
+    if (node == null) {
+        // empty tree, do nothing
+        return;
+    }
+    
+    // write the type code and data for the current node
+    int type = 0;
+    if (node.left != null) {
+        type += 1;
+    }
+    if (node.right != null) {
+        type += 2;
+    }
+    System.out.println(type + " " + node.data);
+    
+    // recursively print the left and right subtrees
+    writeTree(node.left);
+    writeTree(node.right);
+}
+
+
+
+
+
+
+
+
+

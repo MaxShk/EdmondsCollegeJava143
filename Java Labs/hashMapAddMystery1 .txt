@@ -1,0 +1,58 @@
+hashMapAddMystery1 
+Language/Type: Java hashing implementing a collection
+Related Links:Wikipedia: linear probing
+
+Write the final state of the hash map after the following key/value pairs are added and removed. Assume that it uses the standard "mod" hash function and uses linear probing for collision resolution. Write each pair in key=value format, or write X in any index in which an element is removed and not replaced by another element. Do not perform any resizing or rehashing.
+
+HashMap<Integer, String> map = new HashMap<>();
+map.put(8, "Q");
+map.put(27, "J");
+map.put(34, "T");
+map.put(57, "R");
+map.put(45, "Y");
+map.put(74, "S");
+map.put(27, "M");
+map.put(95, "K");
+map.remove(74);
+map.put(76, "T");
+map.remove(8);
+map.remove(5);
+map.put(14, "D");
+
+
+Solution:
+
+element 0	
+element 1	
+element 2	
+element 3	
+element 4	
+k
+element 5	
+45
+element 6	
+element 7	
+27
+element 8	
+element 9	
+J
+element 10	
+M
+element 11	
+T
+element 12	
+R
+element 13	
+Y
+element 14	
+34
+element 15	
+14
+element 16	
+95
+element 17	
+57
+element 18	
+76
+element 19	
+T

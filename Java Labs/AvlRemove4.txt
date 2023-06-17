@@ -1,0 +1,27 @@
+AvlRemove4 
+Language/Type:C++ binary trees
+Author:Allison Obourn
+
+Consider the following AVL tree:
+
+           _____4________
+          /              \
+       __2__              6
+      /     \            / \
+     1       3          5   8
+    /                      / \
+   0                      7   9
+Write the contents of the binary tree in a preorder traversal after removing each of the following elements:
+
+6, 2, 4
+Include a comma and space between each pair of numbers written (the same format as the input listed above is in).
+
+
+Solution:
+
+remove 6:	
+4, 2, 1, 0, 3, 8, 5, 7, 9
+remove 2:	
+4, 1, 0, 3, 8, 5, 7, 9
+remove 4:	
+ 3, 1, 0, 8, 5, 7, 9

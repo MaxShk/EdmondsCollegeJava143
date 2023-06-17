@@ -1,0 +1,72 @@
+readTree 
+Language/Type: Java binary trees Scanner
+Related Links:Scanner
+
+Write a method named readTree that accepts a Scanner as a parameter representing a file of data for a binary tree of integers, reads that file and builds and returns the root of a tree constructed from the data in that file. The tree has been stored in the file using a pre-order traversal with one line for each node. Each line of input has a numeric code indicating the type of node, followed by the data in the node. The format for each node is a code indicating the type of node (from the table below) followed by the data in the node.
+
+Below the table is a data file stored in the above described format (and being read by a Scanner called input) and the tree referenced by variable tree that a call to readTree(input) would create.
+
+Code	Node Type
+0	leaf node (no children)
+1	branch node with left child only
+2	branch node with right child only
+3	branch node with left and right children
+For example, given a Scanner named input that reads from the following input file:
+
+3 7
+1 9
+0 5
+3 8
+2 4
+0 9
+0 6
+The call of readTree(input) would return a TreeNode referring to the root of the following tree:
+
+    7____
+   /     \
+  9     __8
+ /     /   \
+5     4     6
+       \
+        9
+If the file is empty, return an empty (null) tree. Remember that you are creating a tree based on the information in the file.
+
+Assume that you are interacting with TreeNodes as defined below:
+
+public class TreeNode {
+    public int data;
+    public TreeNode left;
+    public TreeNode right;
+    
+    public TreeNode() { ... }
+    public TreeNode(int data) { ... }
+    public TreeNode(int data, TreeNode left, TreeNode right) { ... }
+}
+
+
+Solution:
+
+public static TreeNode readTree(Scanner input) {
+    if (!input.hasNext()) {
+        // empty file, return null
+        return null;
+    }
+    
+    // read the type code and data for the current node
+    int type = input.nextInt();
+    int data = input.nextInt();
+    
+    // create a new node for the current data
+    TreeNode node = new TreeNode(data);
+    
+    if (type == 1 || type == 3) {
+        // recursively build the left subtree
+        node.left = readTree(input);
+    }
+    if (type == 2 || type == 3) {
+        // recursively build the right subtree
+        node.right = readTree(input);
+    }
+    
+    return node;
+}

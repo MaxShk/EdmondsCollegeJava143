@@ -1,0 +1,37 @@
+middle 
+Language/Type: Java implementing Linked Lists LinkedIntList
+Related Links:LinkedIntList.java
+
+Write a method named middle that returns the middle value in a linked list of integers. The middle value is one halfway down the list. For example, if the list is [11, -2, 45, 39, 84], you should return 45.
+
+If the list is of even length, return the rightmost of the two middle elements. For example, if the list is [11, -2, 88, 45, 39, 0], you should return 45. If the list is empty, it should throw a NoSuchElementException.
+
+(For added challenge, can you solve this problem while traversing the list only once?)
+
+Assume that you are adding this method to the LinkedIntList class as defined below:
+
+public class LinkedIntList {
+    private ListNode front;   // null for an empty list
+    ...
+}
+
+
+Solution:
+
+public int middle() throws NoSuchElementException {
+    if (front == null) throw new NoSuchElementException();
+    ListNode fast = front;
+    ListNode slow = front;
+    while (fast != null && fast.next != null) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    return slow.data;
+}
+
+
+
+
+
+
+

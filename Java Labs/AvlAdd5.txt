@@ -1,0 +1,37 @@
+AvlAdd5 
+Language/Type:C++ binary trees
+Author:Allison Obourn
+
+Recall the self-balancing binary search tree called an AVL tree. Remember that it rotates to maintain balance.
+
+Write the contents of the binary tree in a preorder traversal after inserting each of the following elements:
+
+17, 3, 22, 7, 8, 9, 11, 16, 13, 79, 19
+Include a comma and space between each pair of numbers written (the same format as the input listed above is in).
+
+
+Solution:
+
+
+insert 17:	
+17
+insert 3:	
+17, 3
+insert 22:	
+17, 3, 22
+insert 7:	
+17, 3, 7, 22
+insert 8:	
+17, 7, 3, 8, 22
+insert 9:	
+8, 7, 3, 17, 9, 22
+insert 11:	
+8, 7, 3, 17, 9, 11, 22
+insert 16:	
+8, 7, 3, 17, 11, 9, 16, 22
+insert 13:	
+8, 7, 3, 16, 11, 9, 13, 17, 22
+insert 79:	
+8, 7, 3, 16, 11, 9, 13, 22, 17, 79
+insert 19:	
+16, 8, 7, 3, 11, 9, 13, 22, 17, 19, 79

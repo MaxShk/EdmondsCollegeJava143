@@ -1,0 +1,35 @@
+indexOf 
+Language/Type: Java implementing Linked Lists LinkedIntList
+Related Links:LinkedIntList.java
+
+Write a method indexOf that accepts a value as a parameter and returns the index in the list of the first occurrence of that value, or -1 if the value is not found in the list.
+
+Assume that you are adding this method to the LinkedIntList class as defined below:
+
+public class LinkedIntList {
+    private ListNode front;   // null for an empty list
+    ...
+}
+
+Solution:
+
+public int indexOf(int value){
+	ListNode current = front;
+    for(int i = 0; i < size(); i++){
+    	int cVal = current.data;
+        if(cVal == value){
+        	return i;
+        }
+        current = current.next;
+    }
+    return -1;
+	
+}
+
+
+
+
+
+
+
+

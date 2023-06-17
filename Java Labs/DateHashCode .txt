@@ -1,0 +1,26 @@
+DateHashCode 
+Language/Type: Java hashing hashCode
+Related Links:DateWithYear.java
+
+Write a hashCode method for a Date class, whose fields are a year, month, and day as integers. Follow the general contract for the hashCode method, and try to distribute codes well among all legal dates. Assume you are adding your method to the following class:
+
+public class Date {
+    private int year;
+    private int month;
+    private int day;
+    ...
+}
+
+
+Solution:
+
+public int hashCode() {
+ return day + 37 * month + 451 * year;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+hashTableAddMystery1 
+Language/Type: Java hashing implementing a collection
+Related Links:Wikipedia: linear probing
+
+What is the final state of a hash table array of size 10 after adding 35, 2, 15, 80, 42, 95, and 66? Assume that we are using the standard "mod" hash function and linear probing for collision resolution. Do not perform any resizing or rehashing.
+
+
+Solution:
+
+element 0	
+80
+element 1	
+element 2	
+2
+element 3	
+42
+element 4	
+element 5	
+35
+element 6	
+15
+element 7	
+95
+element 8	
+66
+element 9	

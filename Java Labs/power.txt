@@ -1,0 +1,22 @@
+power 
+Language/Type: Java recursion
+
+Write a recursive method named power that accepts two integers representing a base and an exponent and returns the base raised to that exponent. For example, the call of power(3, 4) should return 34 or 81 . If the exponent passed is negative, throw an IllegalArgumentException.
+
+Do not use loops or auxiliary data structures; solve the problem recursively. Also do not use the provided Java pow method in your solution.
+
+
+Solution:
+
+public static int power(int base, int exponent) {
+    if (exponent < 0) {
+        throw new IllegalArgumentException("Exponent cannot be negative.");
+    } else if (exponent == 0) {
+        return 1;
+    } else if (exponent % 2 == 0) {
+        int temp = power(base, exponent/2);
+        return temp * temp;
+    } else {
+        return base * power(base, exponent - 1);
+    }
+}

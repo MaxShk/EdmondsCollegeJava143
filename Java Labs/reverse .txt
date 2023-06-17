@@ -1,0 +1,46 @@
+reverse 
+Language/Type: Java implementing Linked Lists LinkedIntList
+Related Links:LinkedIntList.java
+
+Write a method reverse that reverses the order of the elements in the list. For example, if the variable list initially stores this sequence of integers:
+
+[1, 8, 19, 4, 17]
+It should store the following sequence of integers after reverse is called:
+
+[17, 4, 19, 8, 1]
+Assume that you are adding this method to the LinkedIntList class as defined below:
+
+public class LinkedIntList {
+    private ListNode front;   // null for an empty list
+    ...
+}
+
+
+Solution:
+
+public void reverse() {
+    if (front == null || front.next == null) {
+        // If the list is empty or has only one element, there's nothing to reverse.
+        return;
+    }
+    ListNode prev = null;
+    ListNode curr = front;
+    ListNode next = null;
+    while (curr != null) {
+        next = curr.next; // save next node
+        curr.next = prev; // reverse link
+        prev = curr;      // update prev
+        curr = next;      // update curr
+    }
+    front = prev;         // update front
+}
+
+
+
+
+
+
+
+
+
+
