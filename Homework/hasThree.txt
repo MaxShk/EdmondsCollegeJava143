@@ -1,0 +1,19 @@
+hasThree 
+Language/Type: Java Map collections
+Related Links:ArrayList
+
+Write a method named hasThree that accepts a list of strings as a parameter and returns true if any string value occurs at least 3 times in the list. For example, in the list ["to", "be", "or", "be", "to", "be", "hamlet"], the word "be" occurs 3 times, so your method would return true if passed that list. Use a HashMap as auxiliary storage to help solve the problem. Do not modify the list that is passed in.
+
+
+Solution:
+
+    public static boolean hasThree(List<String> list) {
+        Map<String, Integer> counts = new HashMap<>();
+        for (String str : list) {
+            counts.put(str, counts.getOrDefault(str, 0) + 1);
+            if (counts.get(str) == 3) {
+                return true;
+            }
+        }
+        return false;
+    }

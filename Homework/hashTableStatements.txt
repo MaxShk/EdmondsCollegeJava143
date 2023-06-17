@@ -1,0 +1,22 @@
+hashTableStatements 
+Language/Type: Java hashing
+
+Which of the following statements about hash tables is true?
+
+ A hash table has O(log N) average time to add and search for elements.
+ 
+ Once a hash table's load factor reaches 0.75, no more elements can be added.
+ 
+ A good hash function returns the same value as much as possible for all data.
+ 
+ A hash function maps element values to integer indexes in the hash table.
+ 
+ The higher a hash table's load factor, the more quickly elements can be found.
+ 
+(order shuffled)
+
+
+
+Solution:
+
+A hash function maps element values to integer indexes in the hash table.

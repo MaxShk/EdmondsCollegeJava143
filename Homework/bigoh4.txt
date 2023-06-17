@@ -1,0 +1,96 @@
+bigoh4 
+Language/Type: Java algorithm analysis big-oh
+Related Links:Wikipedia: Big-Oh
+
+Give a tight bound of the nearest runtime complexity class for each of the following code fragments in Big-Oh notation, in terms of the variable N. In other words, write the code's growth rate as N grows. Write a simple expression that gives only a power of N using a caret ^ character for exponentiation, such as O(N^2) to represent O(N2) or O(log N) to represent O(log2 N). Do not write an exact calculation of the runtime such as O(2N3 + 4N + 14).
+
+
+
+
+Solution:
+
+----------------
+O(N)
+----------------
+
+
+// a)
+int sum = 0;
+for (int i = 0; i < N; i++) {
+    sum++;
+}
+for (int i = 100*N; i >= 0; i--) {
+    sum++;
+}
+System.out.println(sum);
+
+----------------
+
+----------------
+O(N)^2
+----------------
+
+// b)
+int sum = 0;
+for (int i = 1; i < N - 2; i++) {
+    for (int j = 0; j < N * 3; j += 2) {
+        for (int k = 0; k < 1000; k++) {
+            sum++;
+        }
+    }
+}
+System.out.println(sum);
+
+----------------
+
+----------------
+O(N)^2
+----------------
+
+// c)
+ArrayList<Integer> v = new ArrayList<Integer>();
+for (int i = 0; i < N; i++) {
+    v.add(i);
+}
+while (!v.isEmpty()) {
+    v.remove(0);
+}
+System.out.println("done!");
+
+----------------
+
+----------------
+O(N log N)
+----------------
+
+// d)
+TreeSet<Integer> set = new TreeSet<Integer>();
+for (int i = 0; i < N/2; i++) {
+    set.add(i);
+}
+Stack<Integer> stack = new Stack<Integer>();
+for (int i = 0; i < N/2; i++) {
+    set.remove(i);
+    stack.push(i);
+}
+​
+System.out.println("done!");
+
+----------------
+
+----------------
+O(N)
+----------------
+// e)
+Queue<Integer> queue = new LinkedList<Integer>();
+for (int i = 1; i <= N; i++) {
+    queue.add(i * i);
+}
+HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+while (!queue.isEmpty()) {
+    int k = queue.remove();
+    map.put(k, N * N);
+}
+System.out.println("done!");
+
+----------------

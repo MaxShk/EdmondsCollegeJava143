@@ -1,0 +1,28 @@
+ removeAll 
+Language/Type: Java ArrayList collections
+Related Links:ArrayList String
+
+Write a method named removeAll that accepts as a parameter an ArrayList of strings along with an element value string, and modifies the list to remove all occurrences of that string. For example, if the list v contains {"a", "b", "c", "b", "b", "a", "b"}, the call of removeAll(v, "b"); should modify it to store {"a", "c", "a"}.
+
+Solution:
+
+public static void removeAll(ArrayList<String> array, String letter){
+        System.out.println(array);
+        System.out.println(letter);
+
+        int i = 0;
+
+        while(i < array.size()){
+            if(array.get(i).equals(letter)){
+                array.remove(i);
+
+            }
+            else{
+                i++;
+            }
+            
+
+        }
+
+        System.out.print("New Array: " + array);
+    }

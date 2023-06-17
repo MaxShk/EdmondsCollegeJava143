@@ -1,0 +1,27 @@
+collectionMystery3 
+Language/Type: Java collection mystery collections
+
+Write the output that is printed when the given method below is passed each of the following pairs of maps as its parameter. Recall that maps print in a {key1=value1, key2=value2, ..., keyN=valueN} format. You should assume that when looping over the map, it loops over the keys in the order that they are declared below.
+
+public static void collectionMystery3(HashMap<String, String> map) {
+    ArrayList<String> list = new ArrayList<String>();
+    for (String key : map.keySet()) {
+        if (map.get(key).length() > key.length()) {
+            list.add(map.get(key));
+        } else {
+            list.add(0, key);
+            list.remove(map.get(key));
+        }
+    }
+    System.out.println(list);
+}
+
+
+Solution:
+
+
+{horse=cow, cow=horse, dog=cat, ok=yo} :: [ok, dog, horse, horse]
+
+{bye=hello, bird=dog, hi=hello, hyena=apple, fruit=meat} :: [fruit, hyena, bird, hello, hello]
+
+{a=b, c=d, e=a, ff=a, gg=c, hhh=ff} :: [hhh, gg, e]

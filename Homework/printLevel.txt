@@ -1,0 +1,59 @@
+printLevel 
+Language/Type: Java binary trees implementing IntTree
+Related Links:IntTree.java
+
+Write a method printLevel that accepts an integer parameter n and that prints the values at level n from the left to right, one per line. We will use the convention that the overallRoot is at level 1, that its children are at level 2, and so on. For example, if a variable tree stores a reference to the following tree:
+
+            +----+
+            | 12 |
+            +----+
+           /      \
+          /        \
+      +----+      +----+
+      | 19 |      | 93 |
+      +----+      +----+
+     /      \           \
+    /        \           \
++----+      +----+      +----+
+| 11 |      | 14 |      | 15 |
++----+      +----+      +----+
+           /
+          /
+      +----+
+      | 10 |
+      +----+
+Then the call tree.printLevel(3); would produce the following output:
+
+11
+14
+15
+If there are no values at the level, your method should produce no output. Your method should throw an IllegalArgumentException if passed a value for a level n that is less than 1.
+
+Assume that you are adding this method to the IntTree class as defined below:
+
+public class IntTree {
+    private IntTreeNode overallRoot;
+    ...
+}
+
+
+Solution:
+
+public void printLevel(int n) {
+    if (n < 1) {
+        throw new IllegalArgumentException("Level must be at least 1");
+    }
+    printLevel(overallRoot, n);
+}
+
+private void printLevel(IntTreeNode root, int n) {
+    if (root == null) {
+        return;
+    }
+    if (n == 1) {
+        System.out.println(root.data);
+    } else {
+        printLevel(root.left, n - 1);
+        printLevel(root.right, n - 1);
+    }
+}

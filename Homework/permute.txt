@@ -1,0 +1,40 @@
+permute 
+Language/Type: Java backtracking recursion
+Related Links:String
+
+Write a recursive method named permute that accepts a string as a parameter and outputs all possible rearrangements of the letters in that string. The arrangements may be output in any order. For example, the call of permute("ABC"); should print:
+
+ABC
+ACB
+BAC
+BCA
+CAB
+CBA
+If the string passed is empty, print no output. Your method must use recursion, but you can use a single for loop if necessary.
+
+
+Solution:
+
+public static void permute(String str) {
+    permuteHelper("", str);
+}
+
+private static void permuteHelper(String prefix, String suffix) {
+    if (suffix.length() == 0) {
+        System.out.println(prefix);
+    } else {
+        for (int i = 0; i < suffix.length(); i++) {
+            permuteHelper(prefix + suffix.charAt(i),
+                          suffix.substring(0, i) + suffix.substring(i + 1));
+        }
+    }
+}
+
+
+
+
+
+
+
+
+

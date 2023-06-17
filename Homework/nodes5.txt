@@ -1,0 +1,30 @@
+nodes5 
+Language/Type: Java ListNodes LinkedLists
+Related Links:LinkedIntList.java Map
+
+Write the code necessary to convert the following sequence of ListNode objects:
+
+list -> [1] -> [2] /
+Into this sequence of ListNode objects:
+
+list -> [1] -> [2] -> [3] /
+Assume that you are using ListNode class as defined in lecture and section:
+
+public class ListNode {
+    public int data;       // data stored in this node
+    public ListNode next;  // a link to the next node in the list
+
+    public ListNode() { ... }
+    public ListNode(int data) { ... }
+    public ListNode(int data, ListNode next) { ... }
+}
+
+
+Solution:
+
+ListNode newNode = new ListNode(3);   // create a new node with data 3
+ListNode current = list;              // start at the head of the list
+while (current.next != null) {        // iterate until the end of the list is reached
+    current = current.next;           // move to the next node
+}
+current.next = newNode;

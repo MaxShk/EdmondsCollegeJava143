@@ -1,0 +1,36 @@
+AvlAdd6 
+Language/Type:C++ binary trees
+Author:Allison Obourn
+
+Recall the self-balancing binary search tree called an AVL tree. Remember that it rotates to maintain balance.
+
+Write the contents of the binary tree in a preorder traversal after inserting each of the following elements:
+
+13, 12, 42, 61, 16, 77, 99, 19, 44, 4
+Include a comma and space between each pair of numbers written (the same format as the input listed above is in).
+
+
+
+
+Solution:
+
+insert 13:	
+13
+insert 12:	
+13, 12
+insert 42:	
+13, 12, 42
+insert 61:	
+13, 12, 42, 61
+insert 16:	
+13, 12, 42, 16, 61
+insert 77:	
+42, 13, 12, 16, 61, 77
+insert 99:	
+42, 13, 12, 16, 77, 61, 99
+insert 19:	
+42, 13, 12, 16, 19, 77, 61, 99
+insert 44:	
+42, 13, 12, 16, 19, 77, 61, 44, 99
+insert 4:	
+42, 13, 12, 4, 16, 19, 77, 61, 44, 99

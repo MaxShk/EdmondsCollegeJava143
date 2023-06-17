@@ -1,0 +1,58 @@
+toString 
+Language/Type: Java binary trees
+Related Links:String
+
+Write a method named toString that returns a string representation of a binary tree of integers. Your method accepts as its parameter a TreeNode that refers to the root of the tree. The method should return "empty" for an empty tree. For a leaf node, it should return the data in the node as a string. For a branch node, it should return a parenthesized string that has three elements separated by commas:
+
+The data at the root.
+A string representation of the left subtree.
+A string representation of the right subtree.
+For example, if a variable named tree refers to the root of the following tree:
+
+    2____
+   /     \
+  8       1
+ /       / \
+0       7   6
+       /     \
+      4       9
+Then the call toString(tree) should return the following string:
+
+"(2, (8, 0, empty), (1, (7, 4, empty), (6, empty, 9)))"
+The quotes above are used to indicate that this is a string but should not be included in the string you return.
+
+Assume that you are interacting with TreeNodes as defined below:
+
+public class TreeNode {
+    public int data;
+    public TreeNode left;
+    public TreeNode right;
+    
+    public TreeNode() { ... }
+    public TreeNode(int data) { ... }
+    public TreeNode(int data, TreeNode left, TreeNode right) { ... }
+}
+
+
+Solution:
+
+public static String toString(TreeNode root) {
+    if (root == null) {
+        return "empty";
+    } else if (root.left == null && root.right == null) {
+        return Integer.toString(root.data);
+    } else {
+        String left = toString(root.left);
+        String right = toString(root.right);
+        return String.format("(%d, %s, %s)", root.data, left, right);
+    }
+}
+
+
+
+
+
+
+
+
+

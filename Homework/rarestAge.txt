@@ -1,0 +1,58 @@
+rarestAge 
+Language/Type: Java Map collections
+Related Links:HashMap Math
+
+Write a method named rarestAge that accepts as a parameter a HashMap from students' names (strings) to their ages (integers), and returns the least frequently occurring age. Consider a map variable named m containing the following key/value pairs:
+
+{Char=45, Dan=45, Jerry=23, Kasey=10, Jeff=10, Elmer=45, Kim=10, Ryan=45, Mehran=23}
+Three people are age 10 (Kasey, Jeff, and Kim), two people are age 23 (Jerry and Mehran), and four people are age 45 (Char, Dan, Elmer, and Ryan). So a call of rarestAge(m) returns 23 because only two people are that age.
+If there is a tie (two or more rarest ages that occur the same number of times), return the youngest age among them. For example, if we added another pair of Steve=23 to the map above, there would now be a tie of three people of age 10 (Kasey, Jeff, Kim) and three people of age 23 (Jerry, Mehran, Steve). So a call of rarestAge(m) would now return 10 because 10 is the smaller of the rarest values. This implies that if every person in the map has a unique age, your method would return the smallest of all the ages in the map.
+
+If the map passed to your method is null or empty, your method should return 0. You may assume that no key or value stored in the map is null. Otherwise you should not make any assumptions about the number of key/value pairs in the map or the range of possible ages that could be in the map.
+
+Constraints: You may create one collection of your choice as auxiliary storage to solve this problem. You can have as many simple variables as you like. You should not modify the contents of the map passed to your method.
+
+
+Solution:
+
+import java.util.HashMap;
+
+public static int rarestAge(HashMap<String, Integer> map) {
+    if (map == null || map.isEmpty()) {
+        return 0;
+    }
+
+    // Step 1: Create a frequency map of ages
+    HashMap<Integer, Integer> ageFreqMap = new HashMap<Integer, Integer>();
+    for (int age : map.values()) {
+        if (ageFreqMap.containsKey(age)) {
+            ageFreqMap.put(age, ageFreqMap.get(age) + 1);
+        } else {
+            ageFreqMap.put(age, 1);
+        }
+    }
+
+    // Step 2: Find the rarest age(s)
+    int rarestAge = Integer.MAX_VALUE;
+    int minFrequency = Integer.MAX_VALUE;
+    for (int age : ageFreqMap.keySet()) {
+        int frequency = ageFreqMap.get(age);
+        if (frequency < minFrequency) {
+            minFrequency = frequency;
+            rarestAge = age;
+        } else if (frequency == minFrequency) {
+            rarestAge = Math.min(rarestAge, age);
+        }
+    }
+
+    return rarestAge;
+}
+
+
+
+
+
+
+
+
+

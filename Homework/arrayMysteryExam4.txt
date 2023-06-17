@@ -1,0 +1,22 @@
+arrayMysteryExam4 
+Language/Type: Java arrays
+
+Write the output produced by the following method when passed each of the following arrays:
+
+public static void arrayMysteryExam4(int[] a) {
+    for (int i = 1; i < a.length; i++) {
+        a[i] = a[a.length - 1 - i] - a[i - 1];
+    }
+    System.out.println(Arrays.toString(a));
+}
+
+
+Solution:
+
+{6, 2, 4} :: [6, -4, 10]
+
+
+{4, 2, 3, 1, 2, 5} :: [4, -2, 3, 0, -2, 6]
+
+
+{6, 0, -1, 3, -2, 0, 4} :: [6, -6, 4, -1, 5, -11, 17]

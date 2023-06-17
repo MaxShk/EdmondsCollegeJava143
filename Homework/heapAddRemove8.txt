@@ -1,0 +1,22 @@
+heapAddRemove8 
+Language/Type:C++ heaps
+
+Recall the implementation of a priority queue using a vertically-ordered tree called a heap. Recall that the heap structure "bubbles" elements up and down as they are added and removed to maintain its vertical ordering.
+
+Given the following string/priority pairs:
+
+A:6, B:10, C:11, D:7, E:4, F:5, G:12, H:2, I:8, J:3, K:1, L:9
+a) Write the final array representation of the binary heap that results when all of the above elements are enqueued (added in the given order) with the given priorities to an initially empty heap. This is a "min-heap", that is, priorities with lesser integer values are higher in the tree. Write your answer in the following format:
+
+{a:17, b:63, c:40}
+b) After adding all the elements, perform 2 dequeue operations (remove-min operations) on the heap. Write the final array representation of the heap that results after the two elements are removed, in the same format.
+
+
+
+Solution:
+
+after all enqueues	
+{K:1, H:2, F:5, A:6, J:3, L:9, G:12, B:10, I:8, D:7, E:4, C:11}
+after 2 dequeues	
+{J:3, E:4, F:5, A:6, D:7, L:9, G:12, B:10, I:8, C:11}
+  

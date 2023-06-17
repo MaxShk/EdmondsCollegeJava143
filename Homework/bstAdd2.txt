@@ -1,0 +1,19 @@
+bstAdd2 
+Language/Type: Java binary search trees tree traversals
+
+Suppose that the following elements are added in the specified order to an empty binary search tree:
+
+Meg, Stewie, Peter, Joe, Lois, Brian, Quagmire, Cleveland
+Write the elements of the tree above in the order they would be seen by a pre-order, in-order, and post-order traversal. Type your solutions with the elements separated by spaces and/or commas, such as:
+
+One, Two, Three, Four
+
+
+Solution:
+
+pre-order	
+Meg, Joe, Brian, Cleveland, Lois, Stewie, Peter, Quagmire
+in-order	
+Brian, Cleveland, Joe, Lois, Meg, Peter, Quagmire, Stewie
+post-order	
+Cleveland, Brian, Lois, Joe, Quagmire, Peter, Stewie, Meg

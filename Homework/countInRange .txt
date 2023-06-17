@@ -1,0 +1,28 @@
+countInRange 
+Language/Type: Java ArrayList collections
+Related Links:ArrayList
+Author:Eric Roberts (on 2017/06/23)
+
+Write a method named countInRange that accepts three parameters: an ArrayList of integers, a minimum and maximum integer, and returns the number of elements in the list within that range inclusive. For example, if the list v contains {28, 1, 17, 4, 41, 9, 59, 8, 31, 30, 25}, the call of countInRange(v, 10, 30) should return 4. If the list is empty, return 0. Do not modify the list that is passed in.
+
+
+Solution:
+
+public static int countInRange(ArrayList<Integer> nums, int min, int max) {
+    int count = 0;
+    for (int num : nums) {
+        if (num >= min && num <= max) {
+            count++;
+        }
+    }
+    return count;
+}
+
+
+
+
+
+
+
+
+

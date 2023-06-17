@@ -1,0 +1,16 @@
+removeEvenLength 
+Language/Type: Java ArrayList Collections
+Related Links:ArrayList
+
+Write a method named removeEvenLength that accepts an ArrayList of strings as a parameter and that removes all of the strings of even length from the list. For example, if an ArrayList variable named list contains the values ["hi", "there", "how", "is", "it", "going", "good", "sirs"], the call of removeEvenLength(list); would change it to store ["there", "how", "going"].
+
+
+Solution:
+
+public static void removeEvenLength(ArrayList<String> list) {
+        for (int i = list.size() - 1; i >= 0; i--) {
+            if (list.get(i).length() % 2 == 0) {
+                list.remove(i);
+            }
+        }
+    }

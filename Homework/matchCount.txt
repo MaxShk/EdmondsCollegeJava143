@@ -1,0 +1,38 @@
+matchCount 
+Language/Type: Java recursion return
+Related Links:ArrayList
+
+Write a recursive method named matchCount that accepts two ArrayLists of integers as parameters and that returns the number of elements that match between them. Two elements match if they occur at the same index in both lists and have equal values. For example, given the two lists shown below, the call of matchCount(v1, v2) would compare as follows:
+
+v1: {2, 5, 0, 3, 8, 9, 1, 1, 0, 7}
+     |  |  |  |  |  |  |
+v2: {2, 5, 3, 0, 8, 4, 1}
+The method should return 4 in this case because 4 of these pairs match (2-2, 5-5, 8-8, and 1-1). If either list is empty, by definition it has no matches with the other list, so your method should return 0.
+
+Constraints: Your method must be recursive and not use any loops (for, while, etc.). You may not use a string, array, or any data structure (stack, map, set, etc.) other than the lists passed. When your code is done running, the two lists should have the same contents as when the call began. Either do not modify the lists, or if you do modify them, restore them to their original state afterward. Note again that you may not declare any additional data structures. Your solution should run in no worse than O(N) time, where N is the number of elements in the lists.
+
+
+Solution:
+
+public static int matchCount(ArrayList<Integer> list1, ArrayList<Integer> list2) {
+    // base case: if either list is empty, return 0
+    if (list1.isEmpty() || list2.isEmpty()) {
+        return 0;
+    }
+    
+    // recursive case: compare the first elements of each list
+    int count = (list1.get(0).equals(list2.get(0))) ? 1 : 0;
+    // recurse on the remainder of each list, excluding the first element that has already been compared
+    count += matchCount(new ArrayList<Integer>(list1.subList(1, list1.size())), new ArrayList<Integer>(list2.subList(1, list2.size())));
+    
+    return count;
+}
+
+
+
+
+
+
+
+
+

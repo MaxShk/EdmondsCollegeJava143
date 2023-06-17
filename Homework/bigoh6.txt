@@ -1,0 +1,90 @@
+bigoh6 
+Language/Type: Java algorithm analysis big-oh
+Related Links:Wikipedia: Big-Oh
+
+Give a tight bound of the nearest runtime complexity class for each of the following code fragments in Big-Oh notation, in terms of the variable N. In other words, write the code's growth rate as N grows. Write a simple expression that gives only a power of N using a caret ^ character for exponentiation, such as O(N^2) to represent O(N2) or O(log N) to represent O(log2 N). Do not write an exact calculation of the runtime such as O(2N3 + 4N + 14).
+
+
+Solution:
+
+-------------------
+O(N)
+-------------------
+// a)
+int sum = 0;
+for (int i = 1; i <= N; i++) {
+    int k = 4000;
+    for (int j = 1; j <= k; j++) {
+        sum++;
+    }
+}
+System.out.println(sum);
+-------------------
+
+-------------------
+O(N^3)
+-------------------
+// b)
+int sum = 0;
+for (int i = 1; i <= N; i++) {
+    sum += 2;
+}
+for (int i = 1; i <= N; i++) {
+    for (int j = 1; j <= N * N; j++) {
+        sum++;
+    }
+}
+System.out.println(sum);
+-------------------
+
+-------------------
+O(N log N)
+-------------------
+// c)
+Stack<Integer> stack = new Stack<Integer>();
+for (int i = 1; i <= N; i++) {
+    stack.push(i);
+}
+TreeSet<Integer> set = new TreeSet<Integer>();
+while (!stack.isEmpty()) {
+    int k = stack.pop();
+    set.add(k);
+}
+System.out.println("done!");
+-------------------
+
+-------------------
+O(N log N)
+-------------------
+// d)
+HashMap<Integer, Integer> map1 = new HashMap<Integer, Integer>();
+for (int i = 1; i <= N; i++) {
+    map1.put(i, i);
+}
+​
+TreeMap<Integer, Integer> map2 = new TreeMap<Integer, Integer>();
+for (int i = 1; i <= N; i++) {
+    int k = map1.get(i);
+    map2.put(k, k);
+    map2.put(n + k, n + k);
+}
+System.out.println("done!");
+-------------------
+
+-------------------
+O(N^3)
+-------------------
+// e)
+ArrayList<Integer> v = new ArrayList<Integer>();
+for (int i = 1; i <= N; i++) {
+    for (int j = 1; j <= N; j++) {
+        v.add(0, i);
+    }
+    v.clear();
+}
+while (!v.isEmpty()) {
+    v.remove(0);
+}
+System.out.println("done!");
+-------------------
+

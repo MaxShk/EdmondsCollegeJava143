@@ -1,0 +1,28 @@
+AvlRemove6 
+Language/Type:C++ binary trees
+Author:Allison Obourn
+
+Consider the following AVL tree:
+
+           _____42_______
+          /              \
+       __13__             77
+      /      \            / \
+     12      16         61   99
+    /          \       /
+   4           19     44
+Write the contents of the binary tree in a preorder traversal after removing each of the following elements:
+
+13, 42, 99
+Include a comma and space between each pair of numbers written (the same format as the input listed above is in).
+
+
+
+Solution:
+
+remove 13:	
+42, 12, 4, 16, 19, 77, 61, 44, 99
+remove 42:	
+19, 12, 4, 16, 77, 61, 44, 99
+remove 99:	
+19, 12, 4, 16, 61, 44, 77

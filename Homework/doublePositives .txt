@@ -1,0 +1,84 @@
+doublePositives 
+Language/Type: Java binary trees recursion
+Related Links:IntTree.java
+
+Write a method doublePositives that doubles all data values greater than 0 in a binary tree of integers. For example, the before and after of a call to doublePositives on a sample tree are shown below:
+
+		  Before Call	
+            +----+
+            | -9 |
+            +----+
+           /      \
+          /        \
+      +----+      +----+
+      |  3 |      | 15 |
+      +----+      +----+
+     /           /      \
+    /           /        \
++----+      +----+      +----+
+|  0 |      | 12 |      | 24 |
++----+      +----+      +----+
+           /      \
+          /        \
+      +----+      +----+
+      |  6 |      | -3 |
+      +----+      +----+
+	  
+	  
+		  After Call
+            +----+
+            | -9 |
+            +----+
+           /      \
+          /        \
+      +----+      +----+
+      |  6 |      | 30 |
+      +----+      +----+
+     /           /      \
+    /           /        \
++----+      +----+      +----+
+|  0 |      | 24 |      | 48 |
++----+      +----+      +----+
+           /      \
+          /        \
+      +----+      +----+
+      | 12 |      | -3 |
+      +----+      +----+
+Assume that you are adding this method to the IntTree class as defined below:
+
+public class IntTree {
+    private IntTreeNode overallRoot;
+    ...
+}
+
+
+Solution:
+
+public void doublePositives() {
+    overallRoot = doublePositives(overallRoot);
+}
+
+private IntTreeNode doublePositives(IntTreeNode root) {
+    if (root == null) {
+        return null;
+    } else {
+        if (root.data > 0) {
+            root.data *= 2;
+        }
+        root.left = doublePositives(root.left);
+        root.right = doublePositives(root.right);
+        return root;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

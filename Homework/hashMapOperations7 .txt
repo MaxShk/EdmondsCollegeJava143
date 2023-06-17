@@ -1,0 +1,65 @@
+hashMapOperations7 
+Language/Type:C++ inheritance polymorphism
+
+Simulate the behavior of a hash map as described and implemented in lecture. Assume the following:
+
+the hash table array has an initial capacity of 10
+the hash table uses separate chaining to resolve collisions
+the hash function returns the absolute value of the integer key, mod the capacity of the hash table
+rehashing occurs at the end of an add where the load factor is ≥ 0.5 and doubles the capacity of the hash table
+Fill in the diagram to show the final state of the hash table after the following operations are performed. Write each bucket as key:value pairs with arrows between them, such as key1:value1 -> key2:value2 -> key3:value3 . Leave a box empty if an array element is unused. Also write the size, capacity, and load factor of the final hash table. Write the load factor in 0.x format, such as 0.5 or 0.75.
+
+HashMap map;
+map.put(19, 9);
+map.put(4, 4);
+map.put(44, 19);
+map.remove(9);
+map.put(23, 54);
+map.put(73, 54);
+map.put(83, 9);
+map.put(99, 4);
+map.remove(4);
+map.put(0, 0);
+map.put(-2, -88);
+if (!map.containsKey(73)) {
+    map.put(66, 77);
+}
+map.put(333, 0);
+
+
+Solution:
+
+hashTable[0]	
+0:0
+hashTable[1]	
+hashTable[2]	
+-2:-88
+hashTable[3]	
+83:9 -> 23:54
+hashTable[4]	
+44:19
+hashTable[5]	
+hashTable[6]	
+hashTable[7]	
+hashTable[8]	
+hashTable[9]	
+hashTable[10]	
+hashTable[11]	
+hashTable[12]	
+hashTable[13]	
+333:0 -> 73:54
+hashTable[14]	
+hashTable[15]	
+hashTable[16]	
+hashTable[17]	
+hashTable[18]	
+hashTable[19]	
+99:4 -> 19:9
+size	
+9
+capacity	
+20
+load factor	
+0.45
+
+  

@@ -1,0 +1,21 @@
+traversal1 
+Language/Type: Java binary trees tree traversals
+
+Write the elements of the tree below in the order they would be seen by a pre-order, in-order, and post-order traversal.
+
+    3__
+   /   \
+  5     2
+ /     / \
+1     4   6
+
+
+
+Solution:
+
+pre-order	
+351246
+in-order	
+153426
+post-order	
+154623

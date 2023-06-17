@@ -1,0 +1,97 @@
+bigoh5 
+Language/Type: Java algorithm analysis big-oh
+Related Links:Wikipedia: Big-Oh
+
+Give a tight bound of the nearest runtime complexity class for each of the following code fragments in Big-Oh notation, in terms of the variable N. In other words, write the code's growth rate as N grows. Write a simple expression that gives only a power of N using a caret ^ character for exponentiation, such as O(N^2) to represent O(N2) or O(log N) to represent O(log2 N). Do not write an exact calculation of the runtime such as O(2N3 + 4N + 14).
+
+
+
+Solution:
+
+-----------------
+o(n^2)
+-----------------
+
+// a)
+int sum = 0;
+for (int i = 1; i <= N; i++) {
+    for (int j = 1; j <= 2 * N; j++) {
+        sum++;
+    }
+}
+System.out.println(sum);
+
+-----------------
+
+-----------------
+o(n)
+-----------------
+
+// b)
+int sum = 0;
+for (int i = 1; i <= 100000; i++) {
+    for (int j = 1; j <= i; j++) {
+        for (int k = 1; k <= N; k++) {
+            sum++;
+        }
+    }
+}
+for (int x = 1; x <= N; x += 2) {
+    sum++;
+}
+System.out.println(sum);
+
+-----------------
+
+-----------------
+o(n^2)
+-----------------
+
+// c)
+ArrayList<Integer> v = new ArrayList<Integer>();
+for (int i = 1; i <= N; i++) {
+    v.add(0, i);
+}
+HashSet<Integer> s = new HashSet<Integer>();
+for (int k : v) {
+    s.add(k);
+}
+System.out.println("done!");
+
+-----------------
+
+
+-----------------
+o(n log n)
+-----------------
+
+// d)
+Queue<Integer> q = new LinkedList<Integer>();
+for (int i = 1; i <= 2*N; i++) {
+    q.add(i);
+}
+​
+TreeMap<Integer, Integer> map = new TreeMap<Integer, Integer>();
+while (!q.isEmpty()) {
+    int k = q.remove();
+    map.set(k, -k);
+}
+System.out.println("done!");
+-----------------
+
+-----------------
+o(n)^2
+-----------------
+
+// e)
+HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+for (int i = 1; i <= N * N; i++) {
+    map.put(i, i*i);
+}
+HashSet<Integer> set = new HashSet<Integer>();
+for (int k : map) {
+    set.add(map.get(k));
+}
+System.out.println("done!");
+
+-----------------

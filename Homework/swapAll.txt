@@ -1,0 +1,33 @@
+swapAll 
+Language/Type: Java arrays reference semantics
+
+Write a method named swapAll that accepts two arrays of integers as parameters and swaps their entire contents. You may assume that the arrays passed are not null and are the same length.
+
+For example, if the following arrays are passed:
+
+int[] a1 = {11, 42, -5, 27, 0, 89};
+int[] a2 = {10, 20, 30, 40, 50, 60};
+swapAll(a1, a2);
+After the call, the arrays should store the following elements:
+
+a1: {10, 20, 30, 40, 50, 60}
+a2: {11, 42, -5, 27, 0, 89}
+
+
+Solution:
+
+public static void swapAll(int[] a1, int[] a2) {
+    int[] temp = new int[a1.length];
+    System.arraycopy(a1, 0, temp, 0, a1.length); // copy a1 to temp
+    System.arraycopy(a2, 0, a1, 0, a2.length); // copy a2 to a1
+    System.arraycopy(temp, 0, a2, 0, temp.length); // copy temp to a2
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+printAllDecimal 
+Language/Type: Java backtracking recursion
+
+Write a recursive method named printAllDecimal that accepts an integer number of digits and prints all base-10 numbers that have exactly that many digits, in ascending order, one per line, with leading zeros in front as needed. For example, the call of printAllDecimal(3); should print:
+
+000
+001
+002
+003
+...
+998
+999
+If the number of digits passed is 0 or negative, print no output. Your method must use recursion, but you can use a single for loop if necessary.
+
+
+
+
+Solution:
+
+public static void printAllDecimal(int n) {
+    if (n <= 0) {
+        return; // base case
+    }
+
+    printAllDecimalHelper(n, "");
+}
+
+private static void printAllDecimalHelper(int n, String prefix) {
+    if (n == 0) {
+        System.out.println(prefix); // base case
+        return;
+    }
+
+    for (int i = 0; i < 10; i++) {
+        printAllDecimalHelper(n - 1, prefix + i);
+    }
+}
